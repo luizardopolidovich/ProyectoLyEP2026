@@ -41,3 +41,8 @@ Lo elegimos por dos razones. Primero, es el de mas impacto real: cualquier usuar
 10. Agregar accesibilidad basica al formulario de login (#10) - Bajo
 11. Agregar un Error Boundary global (#11) - Bajo
 12. Agregar PropTypes o evaluar TypeScript (#12) - Bajo
+
+
+## Como se probo la mejora
+
+Se verifico manualmente en el navegador que, al entrar a la ficha de un cliente (`/clientes/:id`), la seccion "Datos de acceso" ya no muestra la contraseña, solo el nombre de usuario. Se confirmo tambien que el resto de la ficha (datos personales, direccion, y el boton "Eliminar Cliente" para el rol Gerencia) sigue funcionando igual que antes del cambio.
