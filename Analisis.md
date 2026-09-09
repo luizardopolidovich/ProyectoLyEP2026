@@ -21,6 +21,7 @@ El proyecto es un frontend hecho con React y Vite que simula un panel de gestion
 | 11 | No hay manejo global de errores si algo se rompe al renderizar; solo existe la pagina de 404 | Robustez | Bajo | Agregar un Error Boundary |
 | 12 | Ningun componente valida sus props (no hay PropTypes ni TypeScript) | Buenas practicas | Bajo | Agregar PropTypes o evaluar migrar a TypeScript de a poco |
 
+### Luis Vilca - Hallazgo #2 (contraseña expuesta en la ficha de cliente)
 ## Mejora seleccionada - justificacion
 
 Implementamos el hallazgo #2: sacar la contraseña del cliente de la vista de ficha (DetalleCliente.jsx).
