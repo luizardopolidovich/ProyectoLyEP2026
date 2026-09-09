@@ -16,7 +16,7 @@ const DetalleCliente = () => {
       .then((data) => setCliente(data));
   }, [id]);
 
-  const eliminarCliente = async () => {
+    const eliminarCliente = async () => {
     try {
       const respuesta = await fetch(
         `https://fakestoreapi.com/users/${id}`,
@@ -31,6 +31,8 @@ const DetalleCliente = () => {
         setTimeout(() => {
           navigate("/clientes");
         }, 2000);
+      } else {
+        setMensaje("No se pudo eliminar el cliente. Intente nuevamente.");
       }
     } catch (error) {
       setMensaje("Error al eliminar cliente");
