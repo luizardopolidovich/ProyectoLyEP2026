@@ -21,12 +21,15 @@ El proyecto es un frontend hecho con React y Vite que simula un panel de gestion
 | 11 | No hay manejo global de errores si algo se rompe al renderizar; solo existe la pagina de 404 | Robustez | Bajo | Agregar un Error Boundary |
 | 12 | Ningun componente valida sus props (no hay PropTypes ni TypeScript) | Buenas practicas | Bajo | Agregar PropTypes o evaluar migrar a TypeScript de a poco |
 
-### Luis Vilca - Hallazgo #2 (contraseña expuesta en la ficha de cliente)
 ## Mejora seleccionada - justificacion
 
-Implementamos el hallazgo #2: sacar la contraseña del cliente de la vista de ficha (DetalleCliente.jsx).
+### Luis Vilca - Hallazgo #2 (contraseña expuesta en la ficha de cliente)
 
-Lo elegimos por dos razones. Primero, es el de mas impacto real: cualquier usuario logueado, sin importar su rol, podia ver la contraseña de cualquier cliente con solo entrar a su ficha. Segundo, era el mas seguro de tocar sin romper nada mas: el cambio queda en un solo archivo, no toca logica de negocio ni depende de arreglar otros hallazgos primero (a diferencia del #3 o el #4, que necesitan tocar varios archivos). Los hallazgos #1 y #6 son igual de importantes en seguridad, pero implican decisiones de arquitectura (como manejar credenciales reales) que no entran en el alcance de esta entrega.
+Implemente el hallazgo #2: sacar la contraseña del cliente de la vista de ficha (DetalleCliente.jsx).
+
+Lo elegi por dos razones. Primero, es el de mas impacto real: cualquier usuario logueado, sin importar su rol podia ver la contraseña de cualquier cliente con solo entrar a su ficha. Segundo, era el mas seguro de tocar sin romper nada mas: el cambio queda en un solo archivo, no toca logica de negocio ni depende de arreglar otros hallazgos primero (a diferencia del #3 o el #4, que necesitan tocar varios archivos). Los hallazgos #1 y #6 son igual de importantes en seguridad, pero implican decisiones de arquitectura (como manejar credenciales reales) que no entran en el alcance de esta entrega.
+
+**Como lo probe:** verifique manualmente que la ficha de cliente sigue mostrando el resto de los datos sin errores, y que la contraseña ya no aparece en pantalla. El resto de la funcionalidad (datos personales, direccion, boton "Eliminar Cliente" para el rol Gerencia) sigue andando igual que antes.
 
 ## Backlog priorizado (para proximas iteraciones)
 
@@ -44,6 +47,4 @@ Lo elegimos por dos razones. Primero, es el de mas impacto real: cualquier usuar
 12. Agregar PropTypes o evaluar TypeScript (#12) - Bajo
 
 
-## Como se probo la mejora
 
-Se verifico manualmente en el navegador que, al entrar a la ficha de un cliente (`/clientes/:id`), la seccion "Datos de acceso" ya no muestra la contraseña, solo el nombre de usuario. Se confirmo tambien que el resto de la ficha (datos personales, direccion, y el boton "Eliminar Cliente" para el rol Gerencia) sigue funcionando igual que antes del cambio.
