@@ -1,7 +1,7 @@
 import '../css/detallecliente.css'
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
- 
+
 const DetalleCliente = () => {
  const { id } = useParams();
   const navigate = useNavigate();
@@ -81,15 +81,11 @@ const DetalleCliente = () => {
       <p>
         <strong>Ciudad:</strong> {cliente.address.city}
       </p>
-
-      <h2>Credenciales</h2>
+      {/* No se muestra la contraseña del cliente por motivos de seguridad (ver ANALISIS.md, hallazgo #2) */}
+      <h2>Datos de acceso</h2>
 
       <p>
         <strong>Usuario:</strong> {cliente.username}
-      </p>
-
-      <p>
-        <strong>Contraseña:</strong> {cliente.password}
       </p>
 
       {role?.trim() === "Gerencia" && (
