@@ -39,6 +39,8 @@ Implementé el hallazgo #10: agregar accesibilidad básica al formulario de inic
 
 Lo elegí por tres razones. Primero, aunque en la tabla figura con impacto Bajo, el login es la puerta de entrada al sistema: para una persona que usa teclado o lector de pantalla, no poder completarlo significa no poder usar ninguna otra funcionalidad. Segundo, era seguro de tocar sin romper nada: el cambio queda en un solo archivo, no modifica la lógica de autenticación y no se superpone con las mejoras de mis compañeros. Tercero, el resultado se puede verificar de forma objetiva: el contraste de los mensajes de error pasa de 4,00:1 a 5,01:1 y cumple el mínimo de 4,5:1 que pide la norma WCAG AA. Los hallazgos #1 y #3 tienen más impacto, pero el #1 requiere un backend de autenticación y el #3 obliga a modificar varios archivos a la vez, lo que excede el alcance de esta entrega.
 
+Cómo lo probé: verifiqué manualmente en el navegador que al hacer clic en cada etiqueta se enfoca su campo; que al enviar el formulario vacío aparecen los tres mensajes de error y el foco queda en Email; que al completar el email y volver a enviar, el foco pasa a Contraseña y después a Sector; y que los mensajes se ven con el rojo de login.css. El inicio de sesión con un usuario válido (jimena@gmail.com, sector Gerencia) sigue entrando al Dashboard igual que antes.
+
 
 
 ## Backlog priorizado (para proximas iteraciones)
