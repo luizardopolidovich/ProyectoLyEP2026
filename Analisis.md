@@ -37,6 +37,8 @@ Implementé el hallazgo #5: agregar manejo de error cuando falla la eliminación
 
 Lo elegí por dos razones. Primero, es un bug real de robustez: cuando el fetch de eliminación respondía con un error HTTP (no ok), el código no entraba ni al if de éxito ni al catch (porque fetch no lanza excepción por errores HTTP, solo por errores de red), entonces el usuario apretaba "Eliminar Cliente" y no recibía ningún feedback — la eliminación fallaba en silencio, sin que se enterara. Segundo, era el más seguro de tocar sin romper nada más: el cambio queda en una sola función de un solo archivo, reutiliza el estado mensaje y su renderizado que ya existían para el caso de éxito y de error de red, y no depende de resolver otros hallazgos primero.
 
+Cómo lo probé: cloné el proyecto localmente y lo corrí con npm run dev. Inicié sesión con un usuario del sector Gerencia y verifiqué el caso de éxito: al eliminar un cliente sigue apareciendo "Cliente eliminado correctamente" y la redirección a los 2 segundos, igual que antes de mi cambio. Para probar el caso que arreglé (respuesta HTTP no-ok), como la API simulada (fakestoreapi.com) casi siempre responde con éxito, apunté temporalmente el fetch a una ruta inexistente para forzar una respuesta de error real y confirmé que ahora se muestra el mensaje "No se pudo eliminar el cliente. Intente nuevamente." en pantalla, en vez de fallar en silencio como antes; después revertí ese cambio temporal.
+
 ## Backlog priorizado (para proximas iteraciones)
 
 1. Sacar las contraseñas hardcodeadas del codigo (#1) - Alto
