@@ -54,7 +54,7 @@ Cómo lo probé: verifiqué manualmente en el navegador que al hacer clic en cad
 7. Agregar tests con Vitest + React Testing Library (#9) - Medio
 8. Centralizar la URL de la API en variables de entorno (#8) - Bajo
 9. Calcular las metricas del Dashboard con datos reales (#7) - Bajo
-10. Agregar accesibilidad basica al formulario de login (#10) - Bajo
+10. ~~Agregar accesibilidad basica al formulario de login (#10)~~ - hecho en el PR de Agustín Parraga
 11. Agregar un Error Boundary global (#11) - Bajo
 12. Agregar PropTypes o evaluar TypeScript (#12) - Bajo
 
