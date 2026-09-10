@@ -45,7 +45,7 @@ Cómo lo probé: cloné el proyecto localmente y lo corrí con npm run dev. Inic
 2. ~~Sacar la contraseña en texto plano de la ficha de cliente (#2)~~ - Alto
 3. Unificar `role` y `admin` en una sola fuente de verdad (#3) - Medio
 4. Centralizar las llamadas a la API en `clientesService.js` (#4) - Medio
-5. Mostrar error cuando falla el borrado de un cliente (#5) - Medio
+5. ~~Mostrar error cuando falla el borrado de un cliente (#5)~~- Medio
 6. Generar contraseña aleatoria al crear un cliente (#6) - Medio
 7. Agregar tests con Vitest + React Testing Library (#9) - Medio
 8. Centralizar la URL de la API en variables de entorno (#8) - Bajo
