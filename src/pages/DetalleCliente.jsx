@@ -31,7 +31,7 @@ const DetalleCliente = () => {
         setTimeout(() => {
           navigate("/clientes");
         }, 2000);
-      } else {
+      } else { //Mostramos mensaje de error si se cancela la eliminacion del cliente (ver analisis numero [5] en Analisis.md)
         setMensaje("No se pudo eliminar el cliente. Intente nuevamente.");
       }
     } catch (error) {
