@@ -39,6 +39,12 @@ Lo elegí por dos razones. Primero, es un bug real de robustez: cuando el fetch 
 
 Cómo lo probé: cloné el proyecto localmente y lo corrí con npm run dev. Inicié sesión con un usuario del sector Gerencia y verifiqué el caso de éxito: al eliminar un cliente sigue apareciendo "Cliente eliminado correctamente" y la redirección a los 2 segundos, igual que antes de mi cambio. Para probar el caso que arreglé (respuesta HTTP no-ok), como la API simulada (fakestoreapi.com) casi siempre responde con éxito, apunté temporalmente el fetch a una ruta inexistente para forzar una respuesta de error real y confirmé que ahora se muestra el mensaje "No se pudo eliminar el cliente. Intente nuevamente." en pantalla, en vez de fallar en silencio como antes; después revertí ese cambio temporal.
 
+### Agustín Parraga - Hallazgo #10 (accesibilidad básica del formulario de login)
+
+Implementé el hallazgo #10: agregar accesibilidad básica al formulario de inicio de sesión (Login.jsx).
+
+Lo elegí por tres razones. Primero, aunque en la tabla figura con impacto Bajo, el login es la puerta de entrada al sistema: para una persona que usa teclado o lector de pantalla, no poder completarlo significa no poder usar ninguna otra funcionalidad. Segundo, era seguro de tocar sin romper nada: el cambio queda en un solo archivo, no modifica la lógica de autenticación y no se superpone con las mejoras de mis compañeros. Tercero, el resultado se puede verificar de forma objetiva: el contraste de los mensajes de error pasa de 4,00:1 a 5,01:1 y cumple el mínimo de 4,5:1 que pide la norma WCAG AA. Los hallazgos #1 y #3 tienen más impacto, pero el #1 requiere un backend de autenticación y el #3 obliga a modificar varios archivos a la vez, lo que excede el alcance de esta entrega.
+
 ## Backlog priorizado (para proximas iteraciones)
 
 1. Sacar las contraseñas hardcodeadas del codigo (#1) - Alto
