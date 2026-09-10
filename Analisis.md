@@ -31,7 +31,6 @@ Lo elegi por dos razones. Primero, es el de mas impacto real: cualquier usuario 
 
 **Como lo probe:** verifique manualmente que la ficha de cliente sigue mostrando el resto de los datos sin errores, y que la contraseña ya no aparece en pantalla. El resto de la funcionalidad (datos personales, direccion, boton "Eliminar Cliente" para el rol Gerencia) sigue andando igual que antes.
 
-
 ## Backlog priorizado (para proximas iteraciones)
 
 1. Sacar las contraseñas hardcodeadas del codigo (#1) - Alto
