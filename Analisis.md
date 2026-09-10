@@ -31,10 +31,16 @@ Lo elegi por dos razones. Primero, es el de mas impacto real: cualquier usuario 
 
 **Como lo probe:** verifique manualmente que la ficha de cliente sigue mostrando el resto de los datos sin errores, y que la contraseña ya no aparece en pantalla. El resto de la funcionalidad (datos personales, direccion, boton "Eliminar Cliente" para el rol Gerencia) sigue andando igual que antes.
 
+### Fabricio Lucas Gaspar - Hallazgo #5 (mensajería de error faltante en eliminaciones fallidas)
+
+Implementé el hallazgo #5: agregar manejo de error cuando falla la eliminación de un cliente (DetalleCliente.jsx).
+
+Lo elegí por dos razones. Primero, es un bug real de robustez: cualquier usuario que intentara eliminar un cliente y la operación fallara (error HTTP no-ok) no recibía ningún feedback, porque fetch no lanza excepción por errores HTTP, solo por errores de red — la eliminación fallaba en silencio. Segundo, era el más seguro de tocar sin romper nada más: el cambio queda en una sola función de un solo archivo, reutiliza el estado mensaje y su renderizado que ya existían, y no depende de resolver otros hallazgos primero.
+
 ## Backlog priorizado (para proximas iteraciones)
 
 1. Sacar las contraseñas hardcodeadas del codigo (#1) - Alto
-2. ~~Sacar la contraseña en texto plano de la ficha de cliente (#2)~~ - hecho en este PR
+2. ~~Sacar la contraseña en texto plano de la ficha de cliente (#2)~~ - Alto
 3. Unificar `role` y `admin` en una sola fuente de verdad (#3) - Medio
 4. Centralizar las llamadas a la API en `clientesService.js` (#4) - Medio
 5. Mostrar error cuando falla el borrado de un cliente (#5) - Medio
