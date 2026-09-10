@@ -2,7 +2,8 @@ import '../css/formcliente.css'
 import { useState } from "react";
 import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import clientesService from "../services/clientesService";
-// Cambio (problema #6): se importa el generador de contraseñas aleatorias (ver ANALISIS.md, hallazgo #6) 
+// Cambio (problema #6): se importa el generador de contraseñas aleatorias, definido en src/utils/passwordUtils.js (archivo nuevo).
+//(ver ANALISIS.md, hallazgo #6)
 import { generarPasswordAleatoria } from "../utils/passwordUtils";
 
 const FormCliente = () => {
