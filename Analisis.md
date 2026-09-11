@@ -47,6 +47,14 @@ Lo elegí por tres razones. Primero, aunque en la tabla figura con impacto Bajo,
 
 **Cómo lo probé:** verifiqué manualmente en el navegador que al hacer clic en cada etiqueta se enfoca su campo; que al enviar el formulario vacío aparecen los tres mensajes de error y el foco queda en Email; que al completar el email y volver a enviar, el foco pasa a Contraseña y después a Sector; y que los mensajes se ven con el rojo de login.css. El inicio de sesión con un usuario válido (jimena@gmail.com, sector Gerencia) sigue entrando al Dashboard igual que antes.
 
+### Ariana Esther Gaspar - Hallazgo #6 (generar contraseña aleatoria al crear nuevo cliente)
+Implementé el hallazgo #6: reemplazar la contraseña fija ("1234") que se le asignaba a todo cliente nuevo por una contraseña generada al azar (FormCliente.jsx + nuevo archivo src/utils/passwordUtils.js).
+
+Lo elegí por dos razones. Primero, es un riesgo de seguridad concreto: como el valor era siempre el mismo, cualquiera que lo conociera (o simplemente lo dedujera, siendo "1234") tenía la contraseña de todos los clientes dados de alta por el sistema, sin necesidad de vulnerar nada. Segundo, era un cambio acotado y seguro de hacer: se resuelve agregando una función utilitaria nueva y cambiando una sola línea en el formulario de alta, sin tocar la lógica de negocio existente ni depender de resolver antes otros hallazgos (a diferencia del #3 o el #4). A diferencia del #1 (usuarios hardcodeados), acá no hace falta decidir nada sobre arquitectura de autenticación: es simplemente dejar de asignar un valor fijo.
+
+Cómo lo probé: di de alta varios clientes de prueba seguidos y confirmé que cada uno recibía una contraseña distinta (revisando el payload enviado a la API), que el resto del formulario seguía validando y limpiando los campos igual que antes, y que la creación del cliente y el mensaje de éxito con el ID funcionan sin cambios.
+
+
 ## Backlog priorizado (para proximas iteraciones)
 
 1. Sacar las contraseñas hardcodeadas del codigo (#1) - Alto
@@ -54,7 +62,7 @@ Lo elegí por tres razones. Primero, aunque en la tabla figura con impacto Bajo,
 3. Unificar `role` y `admin` en una sola fuente de verdad (#3) - Medio
 4. Centralizar las llamadas a la API en `clientesService.js` (#4) - Medio
 5. ~~Mostrar error cuando falla el borrado de un cliente (#5)~~- Medio
-6. Generar contraseña aleatoria al crear un cliente (#6) - Medio
+6. ~~Generar contraseña aleatoria al crear un cliente (#6)~~ - Medio
 7. Agregar tests con Vitest + React Testing Library (#9) - Medio
 8. Centralizar la URL de la API en variables de entorno (#8) - Bajo
 9. Calcular las metricas del Dashboard con datos reales (#7) - Bajo
