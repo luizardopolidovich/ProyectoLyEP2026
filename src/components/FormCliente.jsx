@@ -2,6 +2,9 @@ import '../css/formcliente.css'
 import { useState } from "react";
 import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import clientesService from "../services/clientesService";
+// Cambio (problema #6): se importa el generador de contraseñas aleatorias, definido en src/utils/passwordUtils.js (archivo nuevo).
+//(ver ANALISIS.md, hallazgo #6)
+import { generarPasswordAleatoria } from "../utils/passwordUtils";
 
 const FormCliente = () => {
 
@@ -39,7 +42,9 @@ const FormCliente = () => {
 
             username: nombre.toLowerCase().replace(/\s/g, ""),
 
-            password: "1234",
+            // {/* Antes acá decía password: "1234" (fija para todos los clientes) (ver ANALISIS.md, hallazgo #6) */}.
+            // Ahora se genera una contraseña aleatoria distinta en cada alta.
+            password: generarPasswordAleatoria(),
 
             name: {
                 firstname: nombre,
